@@ -1,0 +1,10 @@
+{
+  "ignition": { "version": "3.2.0" },
+  "systemd": {
+    "units": [{
+      "name": "require-kvc-ice-kmod.service",
+      "enabled": true,
+      "contents": "[Unit]\nRequires=kmods-via-containers@ice-kmod.service\n[Service]\nType=oneshot\nExecStart=/usr/bin/true\n\n[Install]\nWantedBy=multi-user.target"
+    }]
+  }
+}
