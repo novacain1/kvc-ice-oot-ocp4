@@ -4,24 +4,24 @@ Repository to leverage Kmods via Containers (KVC) pattern to effectively utilize
 Currently tested with OpenShift version `4.7.9` with version `1.5.8` of the Intel ice driver.
 
 > :heavy_exclamation_mark: *Red Hat support cannot assist with problems with this Repo*!
+
 > :heavy_exclamation_mark: *Intel supports the ice driver on sourceforge.net*!
 
 ## Background
+
+Credit to Aaron Smith (https://github.com/atyronesmith/) for the original work that this implementation is based on!
 
 This project is used to build a MachineConfig object, *ice-mc.yaml*, that installs a newer version of the Intel ice driver in OpenShift 4.7 nodes of your choosing.
 
 This project uses the [kmods-via-containers](https://github.com/openshift-psap/kmods-via-containers) projects to load kernel modules using containers.  The [kvc-ice-kmod](https://github.com/novacain1/kvc-ice-kmod) repository is a companion to this repo and implements some of the *kmods-via-containers* project requirements.
 
-Credit to Aaron Smith (https://github.com/atyronesmith/) for the original work that this implementation is based on!
-
-The *build.sh* script enables the **Cluster-Wide Entitled Builds on OpenShift
-** method as outlined in this [blog](https://www.openshift.com/blog/how-to-use-entitled-image-builds-to-build-drivercontainers-with-ubi-on-openshift)
+The *build.sh* script enables the **Cluster-Wide Entitled Builds on OpenShift** method as outlined in this [blog](https://www.openshift.com/blog/how-to-use-entitled-image-builds-to-build-drivercontainers-with-ubi-on-openshift)
 
 ## Prerequisites
 
-Pre-requisites include copying the reader's entitlement PEM files into the directory called **certdir**.  This is easily accomplished by using a RHEL8 host as a builder machine, subscribe it to [Red Hat Subscription Management](https://access.redhat.com/solutions/253273), and copy files from the directory `/etc/pki/entitlement` to **certdir**.
+Prerequisites include copying the reader's entitlement PEM files into the directory called **certdir**.  This is easily accomplished by using a RHEL8 host as a builder machine, subscribe it to [Red Hat Subscription Management](https://access.redhat.com/solutions/253273), and copy files from the directory `/etc/pki/entitlement` to **certdir**.
 
-As an alternative (and if you are not a Red Hat Partner using a Not-for-Resale subscription, also known as an NFR), one can attach a *Red Hat Developer Subscription for Individuals* subscription to a virtual system, and download the certificates from your [Red Hat Customer Portal](access.redhat.com).  Place the entitlement_certifications/.pem files in **certdir**.
+As an alternative (and if you are not a Red Hat Partner using a Not-for-Resale subscription, also known as an NFR), one can attach a *Red Hat Developer Subscription for Individuals* subscription to a virtual system, and download the certificates from your [Red Hat Customer Portal](access.redhat.com).  Place the `.pem` files in **certdir**.
 
 ## Building and Installing
 
