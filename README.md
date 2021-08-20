@@ -1,7 +1,7 @@
 # Intel ice driver KVC implementation on OpenShift 4 Realtime
 Repository to leverage Kmods via Containers (KVC) pattern to effectively utilize Intel's Out of Tree ice Network Interface driver for E810 series cards in an OpenShift 4 environment.  This specific repository targets the Realtime version of Red Hat Enterprise Linux CoreOS (commonly abbreviated as RHCOS).  More details on provisioning a node with real-time capabilities are avaiable in the OpenShift documentation [here](https://docs.openshift.com/container-platform/4.7/scalability_and_performance/cnf-performance-addon-operator-for-low-latency-nodes.html#performance-addon-operator-provisioning-worker-with-real-time-capabilities_cnf-master).
 
-Currently tested with OpenShift version `4.7.9` with version `1.5.8` of the Intel ice driver.
+Currently tested with OpenShift version `4.8.2` with version `1.6.4` of the Intel ice driver.
 
 > :heavy_exclamation_mark: *Red Hat support cannot assist with problems with this Repo*!
 
@@ -46,7 +46,7 @@ After the real-time workers return to normal, you can check that the new driver 
     To use host binaries, run `chroot /host`
     sh-4.4# chroot /host
     sh-4.4# cat /sys/bus/pci/drivers/ice/module/version
-    1.5.8
+    1.6.4
 
 ## Uninstalling or removing
 Simply delete the MachineConfig file that was created earlier.  This will restore the inbox driver on the nodes in question.
